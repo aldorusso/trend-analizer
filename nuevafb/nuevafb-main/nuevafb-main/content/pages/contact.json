@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "subtitle": "Contacto",
+    "title": "¿Tienes preguntas? Estamos aquí para ayudarte",
+    "description": "Nuestro equipo de soporte está disponible para resolver tus dudas sobre cuentas, servicios y más."
+  },
+  "contactInfo": {
+    "email": "tucuentadolar@facebank.pr",
+    "phone": "+1 787-200-4444",
+    "address": "FACEBANK International Corp.\n17 Calle 2 STE 600\nGuaynabo, Puerto Rico 00968-1787",
+    "hours": "Lunes - Viernes: 8:30 AM - 5:00 PM EST"
+  },
+  "internationalPhones": [
+    {
+      "country": "Colombia",
+      "phone": "+57 601 447 6888"
+    },
+    {
+      "country": "Perú",
+      "phone": "+51 1 708 5270"
+    },
+    {
+      "country": "Chile",
+      "phone": "+56 22 588 3053"
+    },
+    {
+      "country": "México",
+      "phone": "+52 55 4163 3035"
+    },
+    {
+      "country": "Panamá",
+      "phone": "+507 833 8173"
+    },
+    {
+      "country": "República Dominicana",
+      "phone": "+1 829 956 8800"
+    },
+    {
+      "country": "Ecuador",
+      "phone": "+593 2 601 3252"
+    }
+  ],
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/faceBankPR",
+    "twitter": "https://twitter.com/facebank",
+    "instagram": "https://www.instagram.com/facebankpr",
+    "linkedin": "https://www.linkedin.com/company/facebank"
+  },
+  "seo": {
+    "title": "Contacto - FACEBANK | Soporte al Cliente",
+    "description": "Contáctanos para resolver tus dudas sobre cuentas en dólares, transferencias y servicios bancarios. Soporte disponible en español, inglés y portugués."
+  }
+}

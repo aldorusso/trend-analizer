@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "titleLine1": "Digital",
+    "titleLine2": "Design Experience",
+    "videoImage": "/assets/img/home-01/hero/hero-video-1.jpg",
+    "backgroundImage": "/assets/img/bg-wrap-2.jpg",
+    "description": "Hey! is the ultimate Agntix Agency template for professionals in the design industry.",
+    "avatarImage": "/assets/img/home-01/hero/hero-avater.jpg",
+    "avatarName": "Aldo ",
+    "avatarQuote": "The depth of exploration and quality of the work was great"
+  },
+  "about": {
+    "subtitle": "WHO WE ARE",
+    "description": "An independent web design and branding agency in Manchester set up in 2010 who care, build relationships, have industry experience, and win awards.",
+    "mainImage": "/assets/img/home-01/about/about-1.jpg",
+    "avatarImage": "/assets/img/home-01/about/about-avater.png",
+    "secondaryText": "Driven by a passion for innovation, we specialize in delivering top-quality design solutions",
+    "shapeImage": "/assets/img/home-01/about/about-shape-1.png"
+  },
+  "services": [
+    {
+      "title": "Web Design",
+      "image": "/assets/img/home-01/service/service-1.jpg",
+      "description": "Whether you need stunning visuals for your website, captivating graphics for your marketing materials, or innovative UI/UX designs for your app, our team of experts is here to turn your vision into reality.",
+      "categories": [
+        "UX Design",
+        "User Testing",
+        "Motion Design",
+        "Product Prototype"
+      ]
+    },
+    {
+      "title": "Product Design",
+      "image": "/assets/img/home-01/service/service-2.jpg",
+      "description": "Our product design services focus on creating intuitive and aesthetically pleasing products that resonate with your audience and stand out in the market.",
+      "categories": [
+        "UX Design",
+        "User Testing",
+        "Product Prototype",
+        "Mobile UI",
+        "Software UI design",
+        "Web app design"
+      ]
+    },
+    {
+      "title": "Web Development",
+      "image": "/assets/img/home-01/service/service-3.jpg",
+      "description": "From website development and e-commerce platforms to custom software and mobile apps, our development team has the expertise to bring your ideas to life.",
+      "categories": [
+        "UX Design",
+        "Frontend",
+        "Backend",
+        "E-commerce",
+        "No Code / Low Code"
+      ]
+    },
+    {
+      "title": "Branding",
+      "image": "/assets/img/home-01/service/service-4.jpg",
+      "description": "It's the core of your company's identity. It guides all business decisions, ensuring a consistent and impactful presence in the market.",
+      "categories": [
+        "Research & Insights",
+        "Unique Ways",
+        "Value Proposition",
+        "Naming",
+        "Verbal Identity"
+      ]
+    }
+  ],
+  "seo": {
+    "title": "Home - Agntix Digital Agency & Creative Portfolio NextJs Template",
+    "description": "Agntix is the ultimate digital agency and creative portfolio template for professionals in the design industry."
+  }
+}

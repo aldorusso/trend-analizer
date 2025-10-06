@@ -1,0 +1,174 @@
+@forward '../../public/assets/css/bootstrap.css'; 
+@forward '../../public/assets/css/spacing.css';
+@forward '../../public/assets/css/font-awesome-pro.css'; 
+@forward '../../public/assets/scss/main.scss';
+@import 'react-photo-view/dist/react-photo-view.css';
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+/* Video modal style */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9); 
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-modal-container {
+  width: 90%;
+  max-width: 1200px; 
+  position: relative;
+}
+
+.video-modal-iframe {
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  color: white;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-modal-close:hover {
+  transform: scale(1.2);
+}
+
+/* Click outside to close */
+.video-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Inter Font Override */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, a, div, li, button, input, textarea, select {
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Dynamic Typography Styles - Override with CMS settings */
+:root {
+  --typography-h1-size: 60px;
+  --typography-h1-weight: 700;
+  --typography-h1-line-height: 1.2;
+
+  --typography-h2-size: 48px;
+  --typography-h2-weight: 700;
+  --typography-h2-line-height: 1.2;
+
+  --typography-h3-size: 36px;
+  --typography-h3-weight: 600;
+  --typography-h3-line-height: 1.3;
+
+  --typography-h4-size: 28px;
+  --typography-h4-weight: 600;
+  --typography-h4-line-height: 1.3;
+
+  --typography-h5-size: 22px;
+  --typography-h5-weight: 600;
+  --typography-h5-line-height: 1.4;
+
+  --typography-h6-size: 18px;
+  --typography-h6-weight: 600;
+  --typography-h6-line-height: 1.4;
+
+  --typography-p-size: 16px;
+  --typography-p-weight: 400;
+  --typography-p-line-height: 1.6;
+
+  --typography-body-size: 14px;
+  --typography-body-weight: 400;
+  --typography-body-line-height: 1.5;
+}
+
+h1 {
+  font-size: var(--typography-h1-size) !important;
+  font-weight: var(--typography-h1-weight) !important;
+  line-height: var(--typography-h1-line-height) !important;
+}
+
+h2 {
+  font-size: var(--typography-h2-size) !important;
+  font-weight: var(--typography-h2-weight) !important;
+  line-height: var(--typography-h2-line-height) !important;
+}
+
+h3 {
+  font-size: var(--typography-h3-size) !important;
+  font-weight: var(--typography-h3-weight) !important;
+  line-height: var(--typography-h3-line-height) !important;
+}
+
+h4 {
+  font-size: var(--typography-h4-size) !important;
+  font-weight: var(--typography-h4-weight) !important;
+  line-height: var(--typography-h4-line-height) !important;
+}
+
+h5 {
+  font-size: var(--typography-h5-size) !important;
+  font-weight: var(--typography-h5-weight) !important;
+  line-height: var(--typography-h5-line-height) !important;
+}
+
+h6 {
+  font-size: var(--typography-h6-size) !important;
+  font-weight: var(--typography-h6-weight) !important;
+  line-height: var(--typography-h6-line-height) !important;
+}
+
+p {
+  font-size: var(--typography-p-size) !important;
+  font-weight: var(--typography-p-weight) !important;
+  line-height: var(--typography-p-line-height) !important;
+}
+
+body {
+  font-size: var(--typography-body-size) !important;
+  font-weight: var(--typography-body-weight) !important;
+  line-height: var(--typography-body-line-height) !important;
+  padding-top: 50px !important; /* Espacio para el Top Bar fijo (reducido) */
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-top: 0 !important; /* Remover padding en móviles donde no se muestra el Top Bar */
+  }
+}
+
+/* Ajuste para el header cuando hay TopBar */
+.tp-header-9-area,
+.tp-header-area {
+  margin-top: 10px; /* Espacio adicional entre TopBar y header (reducido) */
+}
+
+/* Asegurar que el header sticky tenga z-index correcto - debe estar por encima del TopBar */
+.header-sticky {
+  z-index: 1000 !important; /* Por encima del TopBar (999) */
+}
+
+/* Estilo específico para el TopBar */
+.tp-top-bar {
+  z-index: 999 !important; /* Debajo del header cuando sticky */
+}
