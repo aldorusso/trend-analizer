@@ -3,6 +3,7 @@ import Link from "next/link";
 import ThemeToggle from "./components/ThemeToggle";
 import Logo from "./components/Logo";
 import FeaturesWithTabs from "./components/FeaturesWithTabs";
+import AIFeature from "./components/AIFeature";
 import WhyChoose from "./components/WhyChoose";
 import Pricing from "./components/Pricing";
 import UseCases from "./components/UseCases";
@@ -127,6 +128,9 @@ export default function Home() {
 
       {/* Features Section with Tabs */}
       <FeaturesWithTabs />
+
+      {/* AI Feature Section */}
+      <AIFeature />
 
       {/* Stats Section */}
       <section id="benefits" className="relative py-32 px-6 bg-white/[0.02]">

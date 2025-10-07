@@ -116,12 +116,16 @@ export default function ContactoPage() {
               <div className="glass rounded-2xl p-8">
                 <h2 className="text-3xl font-bold mb-6 text-[var(--foreground)]">Envíanos un mensaje</h2>
 
-                {/* Placeholder for external form/script */}
+                {/* Kontaly Contact Form */}
                 <div id="contact-form-container" className="min-h-[500px]">
-                  {/* Aquí se insertará el script del formulario externo */}
-                  <p className="text-gray-400 text-center py-20">
-                    Formulario de contacto se cargará aquí
-                  </p>
+                  <iframe
+                    width="100%"
+                    height="850"
+                    src="https://kontaly.com/forms/wtl/4cd39b8987c8617fb604ea3fbe5e1a20"
+                    style={{ border: 0 }}
+                    sandbox="allow-top-navigation allow-forms allow-scripts allow-same-origin allow-popups"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </div>
             </div>

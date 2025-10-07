@@ -105,7 +105,7 @@ export default function Pricing() {
   const [currency, setCurrency] = useState<Currency>('USD');
 
   const getPrice = (plan: PricingPlan) => {
-    if (plan.name === 'Enterprise') return 'Personalizado';
+    if (plan.name === 'Enterprise') return 'Custom';
     return isAnnual ? plan.annualPrice : plan.monthlyPrice;
   };
 
