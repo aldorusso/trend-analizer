@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Home",
+    "href": "/"
+  },
+  {
+    "label": "Nosotros",
+    "href": "/nosotros"
+  },
+  {
+    "label": "Portafolio",
+    "href": "/portafolio",
+    "counter": 70
+  },
+  {
+    "label": "Servicios",
+    "href": "/servicios/desarrollo-web"
+  },
+  {
+    "label": "Blog",
+    "href": "/blog"
+  },
+  {
+    "label": "Contacto",
+    "href": "/contacto"
+  }
+]
