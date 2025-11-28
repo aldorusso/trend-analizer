@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Brubank",
+    "instagram": "@brubank",
+    "website": "https://brubank.com",
+    "category": "neobank",
+    "country": "Argentina",
+    "notes": "Neobank líder en Argentina. Fuerte en cuentas en dólares y educación financiera."
+  },
+  {
+    "name": "Ualá",
+    "instagram": "@uala",
+    "website": "https://uala.com.ar",
+    "category": "fintech",
+    "country": "Argentina",
+    "notes": "Fintech muy popular. Excelente en engagement y contenido educativo."
+  },
+  {
+    "name": "Mercado Pago",
+    "instagram": "@mercadopago",
+    "website": "https://mercadopago.com.ar",
+    "category": "fintech",
+    "country": "Argentina",
+    "notes": "Gigante de pagos. Gran alcance y contenido viral."
+  },
+  {
+    "name": "Naranja X",
+    "instagram": "@naranjax",
+    "website": "https://naranjax.com",
+    "category": "fintech",
+    "country": "Argentina",
+    "notes": "Fintech argentina. Buen contenido sobre inversiones."
+  },
+  {
+    "name": "Personal Pay",
+    "instagram": "@personalpay",
+    "website": "https://personalpay.com.ar",
+    "category": "fintech",
+    "country": "Argentina",
+    "notes": "Billetera digital de Telecom."
+  },
+  {
+    "name": "Nubank",
+    "instagram": "@nubank",
+    "website": "https://nubank.com.br",
+    "category": "neobank",
+    "country": "Brasil",
+    "notes": "Neobank más grande de LATAM. Excelente benchmark para contenido."
+  },
+  {
+    "name": "Nequi",
+    "instagram": "@nequi",
+    "website": "https://nequi.com.co",
+    "category": "fintech",
+    "country": "Colombia",
+    "notes": "Muy creativo en redes sociales. Tono cercano y divertido."
+  },
+  {
+    "name": "Daviplata",
+    "instagram": "@daviplata",
+    "website": "https://www.daviplata.com",
+    "category": "fintech",
+    "country": "Colombia",
+    "notes": "Líder en Colombia. Buen contenido educativo."
+  },
+  {
+    "name": "Banco Estado",
+    "instagram": "@bancoestado",
+    "website": "https://bancoestado.cl",
+    "category": "banco",
+    "country": "Chile",
+    "notes": "Banco tradicional con buena presencia digital."
+  },
+  {
+    "name": "Mach",
+    "instagram": "@somosmach",
+    "website": "https://somosmach.com",
+    "category": "fintech",
+    "country": "Chile",
+    "notes": "Fintech chilena. Muy activo en redes sociales."
+  },
+  {
+    "name": "Revolut",
+    "instagram": "@revolutapp",
+    "website": "https://revolut.com",
+    "category": "neobank",
+    "country": "Global",
+    "notes": "Neobank global. Excelente en educación financiera y diseño."
+  },
+  {
+    "name": "N26",
+    "instagram": "@n26",
+    "website": "https://n26.com",
+    "category": "neobank",
+    "country": "Global",
+    "notes": "Neobank europeo. Contenido muy profesional y educativo."
+  },
+  {
+    "name": "Chime",
+    "instagram": "@chime",
+    "website": "https://chime.com",
+    "category": "neobank",
+    "country": "USA",
+    "notes": "Neobank USA. Muy bueno en contenido de valor y educación."
+  },
+  {
+    "name": "Wise",
+    "instagram": "@wise",
+    "website": "https://wise.com",
+    "category": "fintech",
+    "country": "Global",
+    "notes": "Especialista en transferencias internacionales. Excelente contenido educativo."
+  }
+]
