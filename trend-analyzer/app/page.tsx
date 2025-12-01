@@ -13,9 +13,10 @@ import InfoInterest from '@/components/InfoInterest';
 import AuthGuard from '@/components/AuthGuard';
 import FreepikImageGenerator from '@/components/FreepikImageGenerator';
 import CountryTrendsAnalyzer from '@/components/CountryTrendsAnalyzer';
+import CountryComparisonDashboard from '@/components/CountryComparisonDashboard';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'facebank' | 'generator' | 'recommendations' | 'manual' | 'info' | 'images' | 'trends'>('facebank');
+  const [activeTab, setActiveTab] = useState<'facebank' | 'generator' | 'recommendations' | 'manual' | 'info' | 'images' | 'trends' | 'global'>('facebank');
   const [searchResults, setSearchResults] = useState<any>(null);
   const [generatedContents, setGeneratedContents] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -133,6 +134,17 @@ export default function Home() {
                 <span className="text-xl mr-2">🌍</span>
                 Tendencias por País
               </button>
+              <button
+                onClick={() => setActiveTab('global')}
+                className={`${
+                  activeTab === 'global'
+                    ? 'border-purple-500 text-purple-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors flex items-center`}
+              >
+                <span className="text-xl mr-2">📊</span>
+                Comparación Global
+              </button>
             </nav>
           </div>
         </div>
@@ -150,6 +162,8 @@ export default function Home() {
           <FreepikImageGenerator />
         ) : activeTab === 'trends' ? (
           <CountryTrendsAnalyzer />
+        ) : activeTab === 'global' ? (
+          <CountryComparisonDashboard />
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - Search */}

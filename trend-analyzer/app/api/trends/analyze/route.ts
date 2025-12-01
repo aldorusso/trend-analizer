@@ -5,6 +5,7 @@ const SERPAPI_URL = 'https://serpapi.com/search';
 interface TrendAnalysisRequest {
   keyword: string;
   country: string;
+  timeframe?: string;
   includeRelated?: boolean;
 }
 
@@ -18,7 +19,7 @@ interface RelatedTrend {
 interface TrendAnalysisResponse {
   main_keyword: string;
   country: string;
-  search_results: any[];
+  search_results: Array<{ date: string; value: number }>;
   related_trends: RelatedTrend[];
   suggested_keywords: string[];
   market_insights: {
@@ -96,7 +97,7 @@ const getRelatedKeywords = (mainKeyword: string): string[] => {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { keyword, country, includeRelated = true }: TrendAnalysisRequest = body;
+    const { keyword, country, timeframe = '12m' }: TrendAnalysisRequest = body;
 
     const serpApiKey = process.env.SERPAPI_KEY;
     if (!serpApiKey) {
@@ -113,7 +114,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(`Analizando tendencias para "${keyword}" en ${country}`);
+    console.log(`Analizando tendencias para "${keyword}" en ${country} con timeframe ${timeframe}`);
 
     // Search main keyword
     const searchParams = new URLSearchParams({
@@ -121,6 +122,7 @@ export async function POST(request: NextRequest) {
       q: keyword,
       geo: country.toUpperCase(),
       data_type: 'TIMESERIES',
+      time: timeframe,
       api_key: serpApiKey,
     });
 
@@ -144,6 +146,7 @@ export async function POST(request: NextRequest) {
           q: relatedKeyword,
           geo: country.toUpperCase(),
           data_type: 'TIMESERIES',
+          time: timeframe,
           api_key: serpApiKey,
         });
 

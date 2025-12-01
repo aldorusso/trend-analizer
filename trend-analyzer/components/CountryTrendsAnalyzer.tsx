@@ -19,7 +19,7 @@ interface MarketInsights {
 interface TrendAnalysis {
   main_keyword: string;
   country: string;
-  search_results: any[];
+  search_results: Array<{ date: string; value: number }>;
   related_trends: RelatedTrend[];
   suggested_keywords: string[];
   market_insights: MarketInsights;
@@ -28,6 +28,7 @@ interface TrendAnalysis {
 export default function CountryTrendsAnalyzer() {
   const [keyword, setKeyword] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('ES');
+  const [selectedTimeframe, setSelectedTimeframe] = useState('12m');
   const [analysis, setAnalysis] = useState<TrendAnalysis | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -43,6 +44,18 @@ export default function CountryTrendsAnalyzer() {
     { code: 'VE', name: 'Venezuela', flag: '🇻🇪' },
     { code: 'EC', name: 'Ecuador', flag: '🇪🇨' },
     { code: 'US', name: 'Estados Unidos', flag: '🇺🇸' },
+  ];
+
+  const timeframeOptions = [
+    { value: '1h', label: 'Última hora', icon: '⏰' },
+    { value: '4h', label: 'Últimas 4 horas', icon: '🕓' },
+    { value: '1d', label: 'Último día', icon: '📅' },
+    { value: '7d', label: 'Última semana', icon: '📆' },
+    { value: '1m', label: 'Último mes', icon: '🗓️' },
+    { value: '3m', label: 'Últimos 3 meses', icon: '🗓️' },
+    { value: '12m', label: 'Último año', icon: '🗓️' },
+    { value: '5y', label: 'Últimos 5 años', icon: '🗓️' },
+    { value: 'all', label: 'Todo el tiempo', icon: '⏳' }
   ];
 
   // Keywords predefinidos para pruebas rápidas
@@ -78,6 +91,7 @@ export default function CountryTrendsAnalyzer() {
         body: JSON.stringify({
           keyword: keyword.trim(),
           country: selectedCountry,
+          timeframe: selectedTimeframe,
           includeRelated: true,
         }),
       });
@@ -90,8 +104,8 @@ export default function CountryTrendsAnalyzer() {
 
       setAnalysis(data.data);
 
-    } catch (err: any) {
-      setError(err.message || 'Error al analizar las tendencias');
+    } catch (err: unknown) {
+      setError((err as Error)?.message || 'Error al analizar las tendencias');
     } finally {
       setLoading(false);
     }
@@ -153,6 +167,24 @@ export default function CountryTrendsAnalyzer() {
                 {countries.map((country) => (
                   <option key={country.code} value={country.code}>
                     {country.flag} {country.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Timeframe */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Período de Análisis
+              </label>
+              <select
+                value={selectedTimeframe}
+                onChange={(e) => setSelectedTimeframe(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                {timeframeOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.icon} {option.label}
                   </option>
                 ))}
               </select>
@@ -236,7 +268,7 @@ export default function CountryTrendsAnalyzer() {
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold text-gray-800">
-                    📈 Análisis: "{analysis.main_keyword}"
+                    📈 Análisis: &quot;{analysis.main_keyword}&quot;
                   </h3>
                   <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
                     {countries.find(c => c.code === analysis.country)?.flag} {countries.find(c => c.code === analysis.country)?.name}
