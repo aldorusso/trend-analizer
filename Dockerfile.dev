@@ -1,0 +1,47 @@
+# Dockerfile para desarrollo
+# Hot reload y debugging habilitado
+
+FROM node:20-alpine
+
+# Install dependencies for development
+RUN apk add --no-cache git
+
+# Set working directory
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including devDependencies)
+RUN npm install && npm cache clean --force
+
+# Generate Prisma client
+COPY prisma ./prisma
+RUN npx prisma generate
+
+# Create data directory for SQLite database
+RUN mkdir -p /app/data && chown nextjs:nodejs /app/data
+
+# Change ownership
+RUN chown -R nextjs:nodejs /app
+
+# Switch to non-root user
+USER nextjs
+
+# Copy source code
+COPY --chown=nextjs:nodejs . .
+
+# Expose port
+EXPOSE 3000
+
+# Set environment variables
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+
+# Start development server with hot reload
+CMD ["npm", "run", "dev"]

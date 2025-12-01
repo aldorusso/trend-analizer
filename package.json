@@ -1,0 +1,44 @@
+{
+  "name": "trend-analyzer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "docker:build": "docker build -t facebank-trend-analyzer:latest .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env facebank-trend-analyzer:latest",
+    "docker:dev": "docker-compose --profile dev up --build",
+    "docker:up": "docker-compose up -d --build",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f app",
+    "docker:shell": "docker exec -it facebank-trend-analyzer sh",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy",
+    "deploy": "./deploy.sh deploy",
+    "deploy:status": "./deploy.sh status"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "axios": "^1.13.2",
+    "chart.js": "^4.5.1",
+    "dotenv": "^17.2.3",
+    "next": "16.0.5",
+    "openai": "^6.9.1",
+    "prisma": "^5.22.0",
+    "react": "19.2.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
