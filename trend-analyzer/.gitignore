@@ -41,3 +41,15 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+# Database
+*.db
+dev.db
+prisma/dev.db
+
+# Documentation files (auto-generated)
+*_FREEPIK.md
+*_IA_FREEPIK.md
+
+# Dataset files
+*.json:Zone.Identifier
