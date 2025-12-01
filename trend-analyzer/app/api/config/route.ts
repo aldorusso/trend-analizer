@@ -6,11 +6,13 @@ export async function GET() {
   try {
     const hasOpenAI = !!process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'your_openai_key_here';
     const hasSerpAPI = !!process.env.SERPAPI_KEY && process.env.SERPAPI_KEY !== 'your_serpapi_key_here';
+    const hasFreepik = !!process.env.FREEPIK_API_KEY && process.env.FREEPIK_API_KEY !== 'your_freepik_api_key_here';
 
     return NextResponse.json({
-      configured: hasOpenAI && hasSerpAPI,
+      configured: hasOpenAI && hasSerpAPI && hasFreepik,
       hasOpenAI,
       hasSerpAPI,
+      hasFreepik,
     });
   } catch (error) {
     return NextResponse.json(
@@ -22,11 +24,11 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const { openaiKey, serpapiKey } = await request.json();
+    const { openaiKey, serpapiKey, freepikKey } = await request.json();
 
-    if (!openaiKey || !serpapiKey) {
+    if (!openaiKey || !serpapiKey || !freepikKey) {
       return NextResponse.json(
-        { error: 'Ambas API keys son requeridas' },
+        { error: 'Todas las API keys son requeridas' },
         { status: 400 }
       );
     }
@@ -44,6 +46,7 @@ export async function POST(request: NextRequest) {
     const lines = envContent.split('\n');
     let openaiUpdated = false;
     let serpapiUpdated = false;
+    let freepikUpdated = false;
 
     const updatedLines = lines.map(line => {
       if (line.startsWith('OPENAI_API_KEY=')) {
@@ -53,6 +56,10 @@ export async function POST(request: NextRequest) {
       if (line.startsWith('SERPAPI_KEY=')) {
         serpapiUpdated = true;
         return `SERPAPI_KEY=${serpapiKey}`;
+      }
+      if (line.startsWith('FREEPIK_API_KEY=')) {
+        freepikUpdated = true;
+        return `FREEPIK_API_KEY=${freepikKey}`;
       }
       return line;
     });
@@ -64,6 +71,9 @@ export async function POST(request: NextRequest) {
     if (!serpapiUpdated) {
       updatedLines.push(`SERPAPI_KEY=${serpapiKey}`);
     }
+    if (!freepikUpdated) {
+      updatedLines.push(`FREEPIK_API_KEY=${freepikKey}`);
+    }
 
     // Escribir el archivo actualizado
     fs.writeFileSync(envPath, updatedLines.join('\n'));
@@ -71,6 +81,7 @@ export async function POST(request: NextRequest) {
     // Actualizar las variables de entorno en tiempo de ejecución
     process.env.OPENAI_API_KEY = openaiKey;
     process.env.SERPAPI_KEY = serpapiKey;
+    process.env.FREEPIK_API_KEY = freepikKey;
 
     return NextResponse.json({
       success: true,

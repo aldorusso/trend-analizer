@@ -10,6 +10,7 @@ export default function ApiKeysConfig({ onConfigured }: ApiKeysConfigProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [openaiKey, setOpenaiKey] = useState('');
   const [serpapiKey, setSerpapiKey] = useState('');
+  const [freepikKey, setFreepikKey] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -47,6 +48,7 @@ export default function ApiKeysConfig({ onConfigured }: ApiKeysConfigProps) {
         body: JSON.stringify({
           openaiKey,
           serpapiKey,
+          freepikKey,
         }),
       });
 
@@ -60,6 +62,7 @@ export default function ApiKeysConfig({ onConfigured }: ApiKeysConfigProps) {
       setConfigured(true);
       setOpenaiKey('');
       setSerpapiKey('');
+      setFreepikKey('');
 
       if (onConfigured) {
         onConfigured();
@@ -120,6 +123,7 @@ export default function ApiKeysConfig({ onConfigured }: ApiKeysConfigProps) {
                 <ul className="mt-2 text-sm text-blue-700 space-y-1 ml-4 list-disc">
                   <li><strong>SerpAPI</strong>: Para buscar tendencias de Google (100 búsquedas gratis/mes)</li>
                   <li><strong>OpenAI</strong>: Para generar contenido con IA (~$0.01 por generación)</li>
+                  <li><strong>Freepik</strong>: Para buscar y usar imágenes profesionales (plan gratuito disponible)</li>
                 </ul>
               </div>
 
@@ -170,6 +174,29 @@ export default function ApiKeysConfig({ onConfigured }: ApiKeysConfigProps) {
                   </a>
                 </div>
 
+                {/* Freepik API Key */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    🎨 Freepik API Key
+                  </label>
+                  <input
+                    type="password"
+                    value={freepikKey}
+                    onChange={(e) => setFreepikKey(e.target.value)}
+                    placeholder="Tu Freepik API key"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    required
+                  />
+                  <a
+                    href="https://www.freepik.com/api"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 hover:underline mt-1 inline-block"
+                  >
+                    → Obtener clave en Freepik API →
+                  </a>
+                </div>
+
                 {/* Instructions */}
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h3 className="font-semibold text-gray-900 mb-2">📝 Instrucciones rápidas:</h3>
@@ -187,6 +214,13 @@ export default function ApiKeysConfig({ onConfigured }: ApiKeysConfigProps) {
                         serpapi.com
                       </a>
                       , ve a "Dashboard" y copia tu API key. El plan gratuito incluye 100 búsquedas al mes.
+                    </li>
+                    <li>
+                      <strong>Freepik</strong>: Regístrate en{' '}
+                      <a href="https://www.freepik.com/api" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        freepik.com/api
+                      </a>
+                      , solicita acceso a la API y obtén tu clave. Plan gratuito disponible para desarrolladores.
                     </li>
                   </ol>
                 </div>

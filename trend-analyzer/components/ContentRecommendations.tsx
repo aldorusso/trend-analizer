@@ -150,10 +150,10 @@ export default function ContentRecommendations() {
           <select
             value={country}
             onChange={(e) => setCountry(e.target.value)}
-            className="flex-1 px-4 py-3 rounded-lg bg-white bg-opacity-20 text-white border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-white"
+            className="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
           >
             {countries.map((c) => (
-              <option key={c.value} value={c.value} className="text-gray-900">
+              <option key={c.value} value={c.value} className="text-gray-900 bg-white">
                 {c.label}
               </option>
             ))}
@@ -164,8 +164,8 @@ export default function ContentRecommendations() {
             disabled={loading}
             className={`px-6 py-3 rounded-lg font-semibold transition-all ${
               loading
-                ? 'bg-white bg-opacity-30 cursor-not-allowed'
-                : 'bg-white text-purple-600 hover:bg-opacity-90'
+                ? 'bg-white bg-opacity-30 cursor-not-allowed text-white'
+                : 'bg-white text-purple-600 hover:bg-gray-100'
             }`}
           >
             {loading ? (
