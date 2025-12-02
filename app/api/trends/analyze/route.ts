@@ -201,7 +201,7 @@ export async function POST(request: NextRequest) {
     const timelineData = mainData.interest_over_time?.timeline_data || [];
     const recentData = timelineData.slice(-12); // Last 12 months
     
-    const avgInterest = recentData.reduce((sum, item) => {
+    const avgInterest = recentData.reduce((sum: number, item: any) => {
       return sum + (item?.values?.[0]?.value || 0);
     }, 0) / recentData.length;
 

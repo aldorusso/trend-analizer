@@ -96,19 +96,19 @@ async function getTrendDataForCountry(keyword: string, country: string, apiKey: 
     console.log(`Datos procesados para ${country}:`, {
       dataPoints: interestData.length,
       sampleValues: interestData.slice(0, 5).map(d => d.value),
-      avgValue: interestData.reduce((sum, d) => sum + d.value, 0) / interestData.length
+      avgValue: interestData.reduce((sum: number, d: any) => sum + d.value, 0) / interestData.length
     });
 
     // Calculate metrics
     const values = interestData.map(item => item.value);
-    const avgInterest = values.reduce((sum, val) => sum + val, 0) / values.length;
+    const avgInterest = values.reduce((sum: number, val: number) => sum + val, 0) / values.length;
     const maxInterest = Math.max(...values);
     
     // Calculate trend direction
     const recentValues = values.slice(-3);
     const olderValues = values.slice(0, 3);
-    const recentAvg = recentValues.reduce((sum, val) => sum + val, 0) / recentValues.length;
-    const olderAvg = olderValues.reduce((sum, val) => sum + val, 0) / olderValues.length;
+    const recentAvg = recentValues.reduce((sum: number, val: number) => sum + val, 0) / recentValues.length;
+    const olderAvg = olderValues.reduce((sum: number, val: number) => sum + val, 0) / olderValues.length;
     
     let trend_direction: 'up' | 'down' | 'stable' = 'stable';
     if (recentAvg > olderAvg * 1.15) trend_direction = 'up';
@@ -140,7 +140,7 @@ async function getTrendDataForCountry(keyword: string, country: string, apiKey: 
 }
 
 function generateInsights(countriesData: CountryData[], keyword: string): ComparisonResponse['insights'] {
-  const totalAvgInterest = countriesData.reduce((sum, country) => sum + country.avg_interest, 0);
+  const totalAvgInterest = countriesData.reduce((sum: number, country: CountryData) => sum + country.avg_interest, 0);
   const avgGlobalInterest = totalAvgInterest / countriesData.length;
 
   const upTrendingCountries = countriesData.filter(c => c.trend_direction === 'up').length;
@@ -243,7 +243,7 @@ export async function POST(request: NextRequest) {
     // Find top performing countries
     const topCountry = countriesData[0];
     const trendingCountries = countriesData.filter(c => c.trend_direction === 'up').slice(0, 3);
-    const marketLeader = countriesData.reduce((prev, current) => 
+    const marketLeader = countriesData.reduce((prev: CountryData, current: CountryData) => 
       prev.peak_interest > current.peak_interest ? prev : current
     );
     const emergingMarkets = countriesData
