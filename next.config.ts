@@ -4,15 +4,29 @@ const nextConfig: NextConfig = {
   // Enable standalone output for Docker
   output: 'standalone',
   
-  // Experimental features for better performance
-  experimental: {
-    // Optimize server components
-    serverComponentsExternalPackages: ['prisma', '@prisma/client'],
-  },
+  // External packages for server components
+  serverExternalPackages: ['prisma', '@prisma/client'],
   
   // Image optimization config for Docker
   images: {
-    domains: ['localhost', 'freepik.com'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'freepik.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.freepik.com',
+      }
+    ],
     unoptimized: process.env.NODE_ENV === 'development'
   },
   

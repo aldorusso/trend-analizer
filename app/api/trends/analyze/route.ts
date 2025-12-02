@@ -166,7 +166,7 @@ export async function POST(request: NextRequest) {
             else if (recent < previous * 0.9) trend_direction = 'down';
           }
 
-          const avgValue = lastValues.reduce((sum, item) => {
+          const avgValue = lastValues.reduce((sum: number, item: any) => {
             return sum + (item?.values?.[0]?.value || 0);
           }, 0) / lastValues.length;
 
