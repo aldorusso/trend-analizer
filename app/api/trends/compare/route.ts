@@ -95,12 +95,12 @@ async function getTrendDataForCountry(keyword: string, country: string, apiKey: 
 
     console.log(`Datos procesados para ${country}:`, {
       dataPoints: interestData.length,
-      sampleValues: interestData.slice(0, 5).map(d => d.value),
+      sampleValues: interestData.slice(0, 5).map((d: any) => d.value),
       avgValue: interestData.reduce((sum: number, d: any) => sum + d.value, 0) / interestData.length
     });
 
     // Calculate metrics
-    const values = interestData.map(item => item.value);
+    const values = interestData.map((item: any) => item.value);
     const avgInterest = values.reduce((sum: number, val: number) => sum + val, 0) / values.length;
     const maxInterest = Math.max(...values);
     

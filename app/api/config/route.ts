@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     let serpapiUpdated = false;
     let freepikUpdated = false;
 
-    const updatedLines = lines.map(line => {
+    const updatedLines = lines.map((line: string) => {
       if (line.startsWith('OPENAI_API_KEY=')) {
         openaiUpdated = true;
         return `OPENAI_API_KEY=${openaiKey}`;

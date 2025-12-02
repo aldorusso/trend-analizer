@@ -139,7 +139,7 @@ export async function POST(request: NextRequest) {
     const relatedKeywords = getRelatedKeywords(keyword);
     
     // Analyze related keywords (limit to avoid rate limits)
-    const relatedTrendsPromises = relatedKeywords.slice(0, 5).map(async (relatedKeyword) => {
+    const relatedTrendsPromises = relatedKeywords.slice(0, 5).map(async (relatedKeyword: string) => {
       try {
         const relatedParams = new URLSearchParams({
           engine: 'google_trends',

@@ -60,11 +60,11 @@ export async function GET() {
 
     return NextResponse.json({
       totalPosts,
-      postsByCompetitor: postsByCompetitor.map(p => ({
+      postsByCompetitor: postsByCompetitor.map((p: any) => ({
         competidor: p.competitorName,
         posts: p._count.id,
       })),
-      postsByType: postsByType.map(p => ({
+      postsByType: postsByType.map((p: any) => ({
         tipo: p.postType,
         posts: p._count.id,
       })),

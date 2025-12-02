@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     ];
 
     // Buscar tendencias para cada tema (limitado a 3 para no gastar muchas búsquedas)
-    const trendPromises = financialTopics.slice(0, 3).map(async (topic) => {
+    const trendPromises = financialTopics.slice(0, 3).map(async (topic: string) => {
       try {
         const response = await axios.get('https://serpapi.com/search', {
           params: {
